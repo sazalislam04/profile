@@ -1,91 +1,74 @@
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import { Inter } from "@next/font/google";
+import Image from "next/image";
+import Link from "next/link";
+import bg from "../public/bg.png";
+import user from "../public/user.png";
+import styles from "../styles/Styles.module.scss";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main>
+      <section>
+        <div className="container">
+          <div className={styles.loginContainer}>
+            <div className={styles.leftWrapper}>
+              <div className={styles.leftimg}>
+                <Image src={bg} alt="image" width={350} height={350} />
+              </div>
+            </div>
+
+            <div className={styles.rightWrapper}>
+              <div className="">
+                <div className={styles.user}>
+                  <Image src={user} alt="user" width={70} height={70} />
+                </div>
+                <form className={styles.inputFrom}>
+                  {/* email input */}
+                  <div>
+                    <label className="" htmlFor="email">
+                      Email
+                    </label>
+                    <input
+                      className=""
+                      type="email"
+                      name="email"
+                      placeholder="Your email"
+                      required
+                    />
+                  </div>
+                  {/* password input */}
+                  <div className={styles.passwordInput}>
+                    <label className="" htmlFor="password">
+                      Password
+                    </label>
+                    <input
+                      className=""
+                      type="password"
+                      name="password"
+                      placeholder="Your password"
+                      required
+                    />
+                  </div>
+                  <div className="">
+                    <button className={styles.btn}>Log In</button>
+                  </div>
+                </form>
+                {/* create new account */}
+                <div className={styles.account}>
+                  <p className="">
+                    Do not have an account?{" "}
+                    <Link href="/register" className="">
+                      Create new account
+                    </Link>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      </section>
     </main>
-  )
+  );
 }
